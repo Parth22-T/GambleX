@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette - GambleX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/roulette.css">
+    <script defer src="assets/api.js"></script>
+    <script defer src="assets/gameUtils.js"></script>
+    <script defer src="assets/script.js"></script>
+    <script defer src="assets/roulette.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">GambleX</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="roulette.html">Roulette</a></li>
+                <li><a href="slot.html">Slot Machine</a></li>
+                <li><a href="sports.html">Sports Betting</a></li>
+                <li><a href="plinko.html">Plinko</a></li>
+                <li><a href="mines.html">Mines</a></li>
+                <li><a href="payments.html">Payments</a></li>
+                <li><a href="login.html" id="login-link">Login/Register</a></li>
+            </ul>
+            <div id="user-status"></div>
+        </nav>
+    </header>
+    <main>
+        <section class="game-section">
+            <h2><i class="fas fa-circle-dot"></i> Roulette</h2>
+            
+            <div class="game-balance">
+                <div class="balance-info">
+                    <span class="balance-label">YOUR BALANCE</span>
+                    <div class="balance-value">
+                        <i class="fas fa-coins"></i>
+                        <span id="user-balance">0</span> INR
+                    </div>
+                </div>
+                <div class="balance-actions">
+                    <a href="payments.html" class="balance-action-btn deposit">
+                        <i class="fas fa-plus-circle"></i> Deposit
+                    </a>
+                    <a href="payments.html" class="balance-action-btn">
+                        <i class="fas fa-history"></i> History
+                    </a>
+                </div>
+            </div>
+            <div class="roulette-container">
+                <div class="roulette-wheel">
+                    <div class="wheel-outer">
+                        <div class="wheel-inner">
+                            <div class="wheel-center"></div>
+                            <div id="ball"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="roulette-board">
+                    <div class="board-row">
+                        <div class="number zero" data-number="0">0</div>
+                    </div>
+                    <div class="board-row">
+                        <div class="number red" data-number="1">1</div>
+                        <div class="number black" data-number="2">2</div>
+                        <div class="number red" data-number="3">3</div>
+                        <div class="number black" data-number="4">4</div>
+                        <div class="number red" data-number="5">5</div>
+                        <div class="number black" data-number="6">6</div>
+                        <div class="number red" data-number="7">7</div>
+                        <div class="number black" data-number="8">8</div>
+                        <div class="number red" data-number="9">9</div>
+                        <div class="number black" data-number="10">10</div>
+                        <div class="number black" data-number="11">11</div>
+                        <div class="number red" data-number="12">12</div>
+                    </div>
+                    <div class="board-row">
+                        <div class="number black" data-number="13">13</div>
+                        <div class="number red" data-number="14">14</div>
+                        <div class="number black" data-number="15">15</div>
+                        <div class="number red" data-number="16">16</div>
+                        <div class="number black" data-number="17">17</div>
+                        <div class="number red" data-number="18">18</div>
+                        <div class="number red" data-number="19">19</div>
+                        <div class="number black" data-number="20">20</div>
+                        <div class="number red" data-number="21">21</div>
+                        <div class="number black" data-number="22">22</div>
+                        <div class="number red" data-number="23">23</div>
+                        <div class="number black" data-number="24">24</div>
+                    </div>
+                    <div class="board-row">
+                        <div class="number red" data-number="25">25</div>
+                        <div class="number black" data-number="26">26</div>
+                        <div class="number red" data-number="27">27</div>
+                        <div class="number black" data-number="28">28</div>
+                        <div class="number black" data-number="29">29</div>
+                        <div class="number red" data-number="30">30</div>
+                        <div class="number black" data-number="31">31</div>
+                        <div class="number red" data-number="32">32</div>
+                        <div class="number black" data-number="33">33</div>
+                        <div class="number red" data-number="34">34</div>
+                        <div class="number black" data-number="35">35</div>
+                        <div class="number red" data-number="36">36</div>
+                    </div>
+                    <div class="board-row special-bets">
+                        <div class="special" data-bet="red">RED</div>
+                        <div class="special" data-bet="black">BLACK</div>
+                        <div class="special" data-bet="even">EVEN</div>
+                        <div class="special" data-bet="odd">ODD</div>
+                        <div class="special" data-bet="1-18">1-18</div>
+                        <div class="special" data-bet="19-36">19-36</div>
+                    </div>
+                </div>
+            </div>
+            <div class="betting-controls">
+                <div class="bet-amount">
+                    <label for="bet-amount">Bet Amount (INR):</label>
+                    <input type="number" id="bet-amount" min="10" value="10">
+                </div>
+                <div class="selected-bet">
+                    <p>Selected: <span id="selected-number">None</span></p>
+                </div>
+                <button id="place-bet-btn" disabled>Place Bet</button>
+                <button id="spin-btn" disabled>Spin</button>
+            </div>
+            <div class="result-display">
+                <p>Result: <span id="result-number">-</span></p>
+                <p>Outcome: <span id="bet-outcome">-</span></p>
+            </div>
+            <div class="bet-history">
+                <h3>Bet History</h3>
+                <table id="bet-history-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Bet On</th>
+                            <th>Amount</th>
+                            <th>Result</th>
+                            <th>Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 GambleX. All rights reserved.</p>
+    </footer>
+</body>
+</html>

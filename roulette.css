@@ -1,0 +1,253 @@
+/* Roulette specific styling */
+.game-section {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #23293a;
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+.roulette-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.roulette-wheel {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 2rem;
+}
+
+.wheel-outer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #333, #111);
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.wheel-inner {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    border-radius: 50%;
+    background: repeating-conic-gradient(
+        #b30000 0deg 10deg,
+        #000 10deg 20deg
+    );
+    /* Removed old animation property, now using transform for rotation */
+    will-change: transform;
+    transform: rotate(0deg);
+    transition: none; /* Set by JS on spin */
+}
+
+.wheel-center {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    top: 40%;
+    left: 40%;
+    border-radius: 50%;
+    background: #ffb400;
+    z-index: 2;
+}
+
+#ball {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 3;
+    will-change: transform;
+    transition: none; /* Set by JS on spin */
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(255,255,255,0.8);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.roulette-board {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 1rem;
+}
+
+.board-row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.number, .special {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.number:hover, .special:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 180, 0, 0.5);
+}
+
+.number.selected, .special.selected {
+    box-shadow: 0 0 10px #ffb400;
+    border: 2px solid #ffb400;
+}
+
+.zero {
+    background: #00a651;
+    color: white;
+}
+
+.red {
+    background: #b30000;
+    color: white;
+}
+
+.black {
+    background: #000;
+    color: white;
+}
+
+.special {
+    width: 80px;
+    background: #2a3252;
+    color: white;
+}
+
+.special-bets {
+    margin-top: 10px;
+}
+
+.betting-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.bet-amount {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#bet-amount {
+    width: 100px;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background: #181c24;
+    color: white;
+}
+
+.selected-bet {
+    font-weight: bold;
+    color: #ffb400;
+}
+
+#place-bet-btn, #spin-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background: #ffb400;
+    color: #181c24;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#place-bet-btn:hover, #spin-btn:hover {
+    background: #ffc233;
+}
+
+#place-bet-btn:disabled, #spin-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+.result-display {
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+#result-number, #bet-outcome {
+    font-weight: bold;
+    color: #ffb400;
+}
+
+.bet-history {
+    margin-top: 2rem;
+}
+
+#bet-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#bet-history-table th, #bet-history-table td {
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+#bet-history-table th {
+    background: #181c24;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 700px) {
+    .roulette-wheel {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .number, .special {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .special {
+        width: 60px;
+    }
+    
+    .betting-controls {
+        flex-direction: column;
+    }
+}

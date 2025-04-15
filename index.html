@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GambleX - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <script defer src="assets/api.js"></script>
+    <script defer src="assets/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Gamble<span>X</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roulette.html">Roulette</a></li>
+                    <li><a href="slot.html">Slot Machine</a></li>
+                    <li><a href="sports.html">Sports Betting</a></li>
+                    <li><a href="plinko.html">Plinko</a></li>
+                    <li><a href="mines.html">Mines</a></li>
+                    <li><a href="payments.html">Payments</a></li>
+                    <li><a href="login.html" id="login-link">Login/Register</a></li>
+                </ul>
+                <div id="user-status"></div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="floating-chips">
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+            </div>
+            <div class="hero-content">
+                <h1>Welcome to GambleX</h1>
+                <p class="hero-text">Your trusted destination for online gaming and betting.</p>
+                <div class="hero-btns">
+                    <a href="login.html" class="btn btn-primary">Get Started</a>
+                    <a href="#games" class="btn btn-outline">Explore Games</a>
+                </div>
+            </div>
+        </section>
+        <section class="why-us">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose Us</h2>
+                </div>
+                <ul>
+                    <li><i class="fas fa-shield-alt"></i> Secure & Trusted Platform</li>
+                    <li><i class="fas fa-bolt"></i> Instant Deposits & Withdrawals</li>
+                    <li><i class="fas fa-gamepad"></i> Wide Range of Games</li>
+                    <li><i class="fas fa-headset"></i> 24/7 Customer Support</li>
+                    <li><i class="fas fa-gift"></i> Attractive Promotions</li>
+                </ul>
+            </div>
+        </section>
+        <section class="about-us">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Us</h2>
+                </div>
+                <p>GambleX is a premier online gambling platform offering a variety of games and sports betting options. Our mission is to provide a safe, fair, and enjoyable experience for all our users. Join us and be a part of the excitement!</p>
+            </div>
+        </section>
+        <section id="games" class="promotions">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Games</h2>
+                </div>
+                <div class="promo-list">
+                    <div class="promo-item">
+                        <img src="assets/images/Promo1.jpeg" alt="Welcome Bonus">
+                        <h3>Welcome Bonus</h3>
+                        <p>Get 100% bonus on your first deposit!</p>
+                        <a href="login.html" class="btn btn-primary">Claim Now</a>
+                    </div>
+                    <div class="promo-item">
+                        <img src="assets/images/Spin.png" alt="Free Spins">
+                        <h3>Free Spins</h3>
+                        <p>Enjoy free spins every weekend on our Slot Machine!</p>
+                        <a href="slot.html" class="btn btn-primary">Play Now</a>
+                    </div>
+                    <div class="promo-item">
+                        <img src="assets/images/cas.jpg" alt="Sports Cashback">
+                        <h3>Sports Cashback</h3>
+                        <p>10% cashback on all sports bets every Monday!</p>
+                        <a href="sports.html" class="btn btn-primary">Bet Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">Gamble<span>X</span></a>
+                    <p>Your premier destination for online gaming and betting. Experience the thrill of gambling with our secure and fair platform.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="roulette.html">Roulette</a></li>
+                        <li><a href="slot.html">Slot Machine</a></li>
+                        <li><a href="sports.html">Sports Betting</a></li>
+                    </ul>
+                </div>
+                <div class="responsible-gambling">
+                    <h4>Responsible Gambling</h4>
+                    <p>GambleX promotes responsible gambling. If you feel you may have a gambling problem, please seek help.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 GambleX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

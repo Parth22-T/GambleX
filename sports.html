@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Betting - GambleX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/sports.css">
+    <script defer src="assets/api.js"></script>
+    <script defer src="assets/gameUtils.js"></script>
+    <script defer src="assets/script.js"></script>
+    <script defer src="assets/sports.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">GambleX</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="roulette.html">Roulette</a></li>
+                <li><a href="slot.html">Slot Machine</a></li>
+                <li><a href="sports.html">Sports Betting</a></li>
+                <li><a href="plinko.html">Plinko</a></li>
+                <li><a href="mines.html">Mines</a></li>
+                <li><a href="payments.html">Payments</a></li>
+                <li><a href="login.html" id="login-link">Login/Register</a></li>
+            </ul>
+            <div id="user-status"></div>
+        </nav>
+    </header>
+    <main>
+        <section class="game-section">
+            <h2><i class="fas fa-futbol"></i> Sports Betting</h2>
+            
+            <div class="game-balance">
+                <div class="balance-info">
+                    <span class="balance-label">YOUR BALANCE</span>
+                    <div class="balance-value">
+                        <i class="fas fa-coins"></i>
+                        <span id="user-balance">0</span> INR
+                    </div>
+                </div>
+                <div class="balance-actions">
+                    <a href="payments.html" class="balance-action-btn deposit">
+                        <i class="fas fa-plus-circle"></i> Deposit
+                    </a>
+                    <a href="payments.html" class="balance-action-btn">
+                        <i class="fas fa-history"></i> History
+                    </a>
+                </div>
+            </div>
+            <div class="sports-tabs">
+                <button class="tab-btn active" data-tab="football">Football</button>
+                <button class="tab-btn" data-tab="cricket">Cricket</button>
+            </div>
+            
+            <!-- Football Tab -->
+            <div class="tab-content" id="football-tab">
+                <h3>Upcoming Football Matches</h3>
+                <div class="matches-container">
+                    <div class="match-card" data-match-id="f1">
+                        <div class="match-header">
+                            <span class="league">Premier League</span>
+                            <span class="date">Apr 16, 2025</span>
+                        </div>
+                        <div class="teams">
+                            <div class="team">
+                                <img src="assets/images/mu.png" alt="Manchester United">
+                                <span>Manchester United</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <img src="assets/images/l.png" alt="Liverpool">
+                                <span>Liverpool</span>
+                            </div>
+                        </div>
+                        <div class="odds">
+                            <button class="odd-btn" data-team="home" data-odd="2.10">Home (2.10)</button>
+                            <button class="odd-btn" data-team="draw" data-odd="3.25">Draw (3.25)</button>
+                            <button class="odd-btn" data-team="away" data-odd="3.50">Away (3.50)</button>
+                        </div>
+                    </div>
+                    
+                    <div class="match-card" data-match-id="f2">
+                        <div class="match-header">
+                            <span class="league">La Liga</span>
+                            <span class="date">Apr 17, 2025</span>
+                        </div>
+                        <div class="teams">
+                            <div class="team">
+                                <img src="assets/images/b.png" alt="Barcelona">
+                                <span>Barcelona</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <img src="assets/images/re.png" alt="Real Madrid">
+                                <span>Real Madrid</span>
+                            </div>
+                        </div>
+                        <div class="odds">
+                            <button class="odd-btn" data-team="home" data-odd="2.40">Home (2.40)</button>
+                            <button class="odd-btn" data-team="draw" data-odd="3.10">Draw (3.10)</button>
+                            <button class="odd-btn" data-team="away" data-odd="2.90">Away (2.90)</button>
+                        </div>
+                    </div>
+                    
+                    <div class="match-card" data-match-id="f3">
+                        <div class="match-header">
+                            <span class="league">Bundesliga</span>
+                            <span class="date">Apr 18, 2025</span>
+                        </div>
+                        <div class="teams">
+                            <div class="team">
+                                <img src="assets/images/bm.png" alt="Bayern Munich">
+                                <span>Bayern Munich</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <img src="assets/images/bd.png" alt="Borussia Dortmund">
+                                <span>Borussia Dortmund</span>
+                            </div>
+                        </div>
+                        <div class="odds">
+                            <button class="odd-btn" data-team="home" data-odd="1.75">Home (1.75)</button>
+                            <button class="odd-btn" data-team="draw" data-odd="3.80">Draw (3.80)</button>
+                            <button class="odd-btn" data-team="away" data-odd="4.50">Away (4.50)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cricket Tab -->
+            <div class="tab-content" id="cricket-tab" style="display: none;">
+                <h3>Upcoming Cricket Matches</h3>
+                <div class="matches-container">
+                    <div class="match-card" data-match-id="c1">
+                        <div class="match-header">
+                            <span class="league">IPL 2025</span>
+                            <span class="date">Apr 16, 2025</span>
+                        </div>
+                        <div class="teams">
+                            <div class="team">
+                                <img src="assets/images/mi.png" alt="Mumbai Indians">
+                                <span>Mumbai Indians</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <img src="assets/images/csk.png" alt="Chennai Super Kings">
+                                <span>Chennai Super Kings</span>
+                            </div>
+                        </div>
+                        <div class="odds">
+                            <button class="odd-btn" data-pngteam="home" data-odd="1.90">Home (1.90)</button>
+                            <button class="odd-btn" data-team="away" data-odd="1.90">Away (1.90)</button>
+                        </div>
+                    </div>
+                    
+                    <div class="match-card" data-match-id="c2">
+                        <div class="match-header">
+                            <span class="league">T20 World Cup</span>
+                            <span class="date">Apr 18, 2025</span>
+                        </div>
+                        <div class="teams">
+                            <div class="team">
+                                <img src="assets/images/bcci.png" alt="India">
+                                <span>India</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <img src="assets/images/au.png" alt="Australia">
+                                <span>Australia</span>
+                            </div>
+                        </div>
+                        <div class="odds">
+                            <button class="odd-btn" data-team="home" data-odd="2.10">Home (2.10)</button>
+                            <button class="odd-btn" data-team="away" data-odd="1.80">Away (1.80)</button>
+                        </div>
+                    </div>
+                    
+                    <div class="match-card" data-match-id="c3">
+                        <div class="match-header">
+                            <span class="league">Test Series</span>
+                            <span class="date">Apr 20, 2025</span>
+                        </div>
+                        <div class="teams">
+                            <div class="team">
+                                <img src="assets/images/en.png" alt="England">
+                                <span>England</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <img src="assets/images/pk.png" alt="Pakistan">
+                                <span>Pakistan</span>
+                            </div>
+                        </div>
+                        <div class="odds">
+                            <button class="odd-btn" data-team="home" data-odd="1.65">Home (1.65)</button>
+                            <button class="odd-btn" data-team="away" data-odd="2.25">Away (2.25)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bet Slip -->
+            <div class="bet-slip">
+                <h3>Bet Slip</h3>
+                <div id="bet-slip-content">
+                    <p class="empty-slip">No bets selected</p>
+                </div>
+                <div class="bet-controls" style="display: none;">
+                    <div class="bet-amount">
+                        <label for="bet-amount">Bet Amount (INR):</label>
+                        <input type="number" id="bet-amount" min="10" value="10">
+                    </div>
+                    <div class="potential-win">
+                        <p>Potential Win: <span id="potential-win">0</span> INR</p>
+                    </div>
+                    <button id="place-bet-btn">Place Bet</button>
+                </div>
+            </div>
+            
+            <!-- Bet History -->
+            <div class="bet-history">
+                <h3>Bet History</h3>
+                <table id="bet-history-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Match</th>
+                            <th>Selection</th>
+                            <th>Odds</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 GambleX. All rights reserved.</p>
+    </footer>
+</body>
+</html>

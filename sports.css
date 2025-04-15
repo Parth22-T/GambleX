@@ -1,0 +1,256 @@
+/* Sports Betting specific styling */
+.game-section {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #23293a;
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+.sports-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 4px;
+    background: #181c24;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.tab-btn.active {
+    background: #ffb400;
+    color: #181c24;
+}
+
+.tab-btn:hover:not(.active) {
+    background: #2a3252;
+}
+
+.matches-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.match-card {
+    background: #181c24;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+}
+
+.match-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 40%;
+}
+
+.team img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    padding: 5px;
+}
+
+.vs {
+    font-weight: bold;
+    color: #ffb400;
+}
+
+.odds {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.odd-btn {
+    flex: 1;
+    padding: 0.7rem 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background: #2a3252;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: center;
+}
+
+.odd-btn:hover {
+    background: #3a4262;
+}
+
+.odd-btn.selected {
+    background: #ffb400;
+    color: #181c24;
+    font-weight: bold;
+}
+
+.bet-slip {
+    background: #181c24;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.empty-slip {
+    text-align: center;
+    color: #aaa;
+    padding: 1rem 0;
+}
+
+.slip-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #333;
+}
+
+.slip-item:last-child {
+    border-bottom: none;
+}
+
+.slip-match {
+    font-weight: bold;
+}
+
+.slip-selection {
+    color: #ffb400;
+}
+
+.slip-odds {
+    font-weight: bold;
+}
+
+.slip-remove {
+    background: none;
+    border: none;
+    color: #f44336;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.bet-controls {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+}
+
+.bet-amount {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#bet-amount {
+    width: 100px;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background: #23293a;
+    color: white;
+}
+
+.potential-win {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+#potential-win {
+    color: #4CAF50;
+}
+
+#place-bet-btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    background: #ffb400;
+    color: #181c24;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#place-bet-btn:hover {
+    background: #ffc233;
+}
+
+.bet-history {
+    margin-top: 2rem;
+}
+
+#bet-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#bet-history-table th, #bet-history-table td {
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+#bet-history-table th {
+    background: #181c24;
+}
+
+.status-pending {
+    color: #ffb400;
+}
+
+.status-won {
+    color: #4CAF50;
+}
+
+.status-lost {
+    color: #f44336;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 700px) {
+    .odds {
+        flex-direction: column;
+    }
+    
+    .team img {
+        width: 40px;
+        height: 40px;
+    }
+}

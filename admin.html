@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GambleX - Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/admin.css">
+    <script defer src="assets/api.js"></script>
+    <script defer src="assets/admin.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Gamble<span>X</span> Admin</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Back to Site</a></li>
+                </ul>
+                <div id="admin-status"></div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="admin-container">
+            <div class="admin-sidebar">
+                <ul class="admin-menu">
+                    <li class="admin-menu-item active" data-tab="dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </li>
+                    <li class="admin-menu-item" data-tab="users">
+                        <i class="fas fa-users"></i> Users
+                    </li>
+                    <li class="admin-menu-item" data-tab="transactions">
+                        <i class="fas fa-money-bill-wave"></i> Transactions
+                    </li>
+                    <li class="admin-menu-item" data-tab="games">
+                        <i class="fas fa-gamepad"></i> Games
+                    </li>
+                    <li class="admin-menu-item" data-tab="settings">
+                        <i class="fas fa-cog"></i> Settings
+                    </li>
+                </ul>
+            </div>
+            <div class="admin-content">
+                <!-- Dashboard Tab -->
+                <div class="admin-tab active" id="dashboard-tab">
+                    <h2>Dashboard Overview</h2>
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Users</h3>
+                                <p id="total-users">Loading...</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Revenue</h3>
+                                <p id="total-revenue">Loading...</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-dice"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Bets</h3>
+                                <p id="total-bets">Loading...</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>New Users (24h)</h3>
+                                <p id="new-users">Loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="charts-container">
+                        <div class="chart-card">
+                            <h3>Revenue Over Time</h3>
+                            <canvas id="revenue-chart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Popular Games</h3>
+                            <canvas id="games-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Users Tab -->
+                <div class="admin-tab" id="users-tab">
+                    <h2>User Management</h2>
+                    <div class="table-controls">
+                        <div class="search-box">
+                            <input type="text" id="user-search" placeholder="Search users...">
+                            <button id="user-search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                        <button class="btn btn-primary" id="export-users">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Balance</th>
+                                    <th>Joined</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table-body">
+                                <tr>
+                                    <td colspan="7">Loading users...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button id="prev-page"><i class="fas fa-chevron-left"></i></button>
+                        <span id="page-info">Page 1 of 1</span>
+                        <button id="next-page"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Transactions Tab -->
+                <div class="admin-tab" id="transactions-tab">
+                    <h2>Transaction History</h2>
+                    <div class="table-controls">
+                        <div class="search-box">
+                            <input type="text" id="transaction-search" placeholder="Search transactions...">
+                            <button id="transaction-search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="filter-options">
+                            <select id="transaction-type">
+                                <option value="all">All Types</option>
+                                <option value="deposit">Deposits</option>
+                                <option value="withdrawal">Withdrawals</option>
+                                <option value="bet">Bets</option>
+                                <option value="win">Wins</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="export-transactions">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactions-table-body">
+                                <tr>
+                                    <td colspan="7">Loading transactions...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button id="prev-trans-page"><i class="fas fa-chevron-left"></i></button>
+                        <span id="trans-page-info">Page 1 of 1</span>
+                        <button id="next-trans-page"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Games Tab -->
+                <div class="admin-tab" id="games-tab">
+                    <h2>Game Statistics</h2>
+                    <div class="games-stats-container">
+                        <div class="game-stat-card">
+                            <h3>Roulette</h3>
+                            <div class="game-stat-details">
+                                <p>Total Bets: <span id="roulette-bets">Loading...</span></p>
+                                <p>House Edge: <span id="roulette-edge">Loading...</span></p>
+                                <p>Total Revenue: <span id="roulette-revenue">Loading...</span></p>
+                            </div>
+                            <button class="btn btn-primary btn-sm">View Details</button>
+                        </div>
+                        <div class="game-stat-card">
+                            <h3>Slot Machine</h3>
+                            <div class="game-stat-details">
+                                <p>Total Spins: <span id="slot-bets">Loading...</span></p>
+                                <p>House Edge: <span id="slot-edge">Loading...</span></p>
+                                <p>Total Revenue: <span id="slot-revenue">Loading...</span></p>
+                            </div>
+                            <button class="btn btn-primary btn-sm">View Details</button>
+                        </div>
+                        <div class="game-stat-card">
+                            <h3>Sports Betting</h3>
+                            <div class="game-stat-details">
+                                <p>Total Bets: <span id="sports-bets">Loading...</span></p>
+                                <p>House Edge: <span id="sports-edge">Loading...</span></p>
+                                <p>Total Revenue: <span id="sports-revenue">Loading...</span></p>
+                            </div>
+                            <button class="btn btn-primary btn-sm">View Details</button>
+                        </div>
+                        <div class="game-stat-card">
+                            <h3>Plinko</h3>
+                            <div class="game-stat-details">
+                                <p>Total Drops: <span id="plinko-bets">Loading...</span></p>
+                                <p>House Edge: <span id="plinko-edge">Loading...</span></p>
+                                <p>Total Revenue: <span id="plinko-revenue">Loading...</span></p>
+                            </div>
+                            <button class="btn btn-primary btn-sm">View Details</button>
+                        </div>
+                        <div class="game-stat-card">
+                            <h3>Mines</h3>
+                            <div class="game-stat-details">
+                                <p>Total Games: <span id="mines-bets">Loading...</span></p>
+                                <p>House Edge: <span id="mines-edge">Loading...</span></p>
+                                <p>Total Revenue: <span id="mines-revenue">Loading...</span></p>
+                            </div>
+                            <button class="btn btn-primary btn-sm">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Settings Tab -->
+                <div class="admin-tab" id="settings-tab">
+                    <h2>System Settings</h2>
+                    <div class="settings-container">
+                        <div class="settings-card">
+                            <h3>General Settings</h3>
+                            <form id="general-settings-form">
+                                <div class="form-group">
+                                    <label for="site-name">Site Name</label>
+                                    <input type="text" id="site-name" value="GambleX">
+                                </div>
+                                <div class="form-group">
+                                    <label for="maintenance-mode">Maintenance Mode</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="maintenance-mode">
+                                        <label for="maintenance-mode"></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="registration-enabled">User Registration</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="registration-enabled" checked>
+                                        <label for="registration-enabled"></label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                        <div class="settings-card">
+                            <h3>Game Settings</h3>
+                            <form id="game-settings-form">
+                                <div class="form-group">
+                                    <label for="min-deposit">Minimum Deposit ($)</label>
+                                    <input type="number" id="min-deposit" value="10">
+                                </div>
+                                <div class="form-group">
+                                    <label for="max-withdrawal">Maximum Withdrawal ($)</label>
+                                    <input type="number" id="max-withdrawal" value="10000">
+                                </div>
+                                <div class="form-group">
+                                    <label for="house-edge">House Edge (%)</label>
+                                    <input type="number" id="house-edge" value="2.5" step="0.1">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                        <div class="settings-card">
+                            <h3>Security Settings</h3>
+                            <form id="security-settings-form">
+                                <div class="form-group">
+                                    <label for="session-timeout">Session Timeout (hours)</label>
+                                    <input type="number" id="session-timeout" value="3">
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-attempts">Max Login Attempts</label>
+                                    <input type="number" id="login-attempts" value="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="2fa-enabled">Require 2FA for Admins</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="2fa-enabled">
+                                        <label for="2fa-enabled"></label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 GambleX Admin Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

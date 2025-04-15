@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine - GambleX</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/slot.css">
+    <script defer src="assets/api.js"></script>
+    <script defer src="assets/gameUtils.js"></script>
+    <script defer src="assets/script.js"></script>
+    <script defer src="assets/slot.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">GambleX</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="roulette.html">Roulette</a></li>
+                <li><a href="slot.html">Slot Machine</a></li>
+                <li><a href="sports.html">Sports Betting</a></li>
+                <li><a href="plinko.html">Plinko</a></li>
+                <li><a href="mines.html">Mines</a></li>
+                <li><a href="payments.html">Payments</a></li>
+                <li><a href="login.html" id="login-link">Login/Register</a></li>
+            </ul>
+            <div id="user-status"></div>
+        </nav>
+    </header>
+    <main>
+        <section class="game-section">
+            <h2>Slot Machine</h2>
+            <div class="balance-display">
+                <h3>Your Balance: <span id="user-balance">0</span> INR</h3>
+            </div>
+            <div class="slot-machine">
+                <div class="slot-display">
+                    <div class="reel" id="reel1">
+                        <div class="symbol" id="r1s1">🍒</div>
+                        <div class="symbol" id="r1s2">🍋</div>
+                        <div class="symbol" id="r1s3">🍇</div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="symbol" id="r2s1">🍒</div>
+                        <div class="symbol" id="r2s2">🍋</div>
+                        <div class="symbol" id="r2s3">🍇</div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="symbol" id="r3s1">🍒</div>
+                        <div class="symbol" id="r3s2">🍋</div>
+                        <div class="symbol" id="r3s3">🍇</div>
+                    </div>
+                </div>
+                <div class="slot-controls">
+                    <div class="bet-amount">
+                        <label for="bet-amount">Bet Amount (INR):</label>
+                        <input type="number" id="bet-amount" min="10" value="10">
+                    </div>
+                    <button id="spin-btn">SPIN</button>
+                </div>
+                <div class="slot-result">
+                    <p id="result-message">Place your bet and spin!</p>
+                </div>
+                <div class="paytable">
+                    <h4>Paytable</h4>
+                    <table>
+                        <tr>
+                            <td>🍒 🍒 🍒</td>
+                            <td>3x</td>
+                        </tr>
+                        <tr>
+                            <td>🍋 🍋 🍋</td>
+                            <td>5x</td>
+                        </tr>
+                        <tr>
+                            <td>🍇 🍇 🍇</td>
+                            <td>10x</td>
+                        </tr>
+                        <tr>
+                            <td>💎 💎 💎</td>
+                            <td>50x</td>
+                        </tr>
+                        <tr>
+                            <td>7️⃣ 7️⃣ 7️⃣</td>
+                            <td>100x</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="bet-history">
+                <h3>Bet History</h3>
+                <table id="bet-history-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Bet Amount</th>
+                            <th>Result</th>
+                            <th>Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 GambleX. All rights reserved.</p>
+    </footer>
+</body>
+</html>

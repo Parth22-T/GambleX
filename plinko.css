@@ -1,0 +1,209 @@
+/* Plinko specific styling */
+.game-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #23293a;
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+.plinko-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.plinko-board {
+    position: relative;
+    width: 600px;
+    height: 500px;
+    background: #181c24;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.plinko-pins {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 0;
+}
+
+.pin {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ffb400;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.plinko-balls {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #f44336;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.plinko-buckets {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bucket {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #fff;
+    border-top: 2px solid #333;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    background: #2a3252;
+}
+
+.bucket:first-child, .bucket:last-child {
+    background: #b30000;
+}
+
+.bucket:nth-child(2), .bucket:nth-child(8) {
+    background: #ff5722;
+}
+
+.bucket:nth-child(3), .bucket:nth-child(7) {
+    background: #ff9800;
+}
+
+.bucket:nth-child(4), .bucket:nth-child(6) {
+    background: #4CAF50;
+}
+
+.bucket:nth-child(5) {
+    background: #2196F3;
+}
+
+.plinko-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#bet-amount, #risk-level, #num-balls {
+    width: 120px;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background: #181c24;
+    color: white;
+}
+
+#drop-btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 4px;
+    background: #ffb400;
+    color: #181c24;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+#drop-btn:hover {
+    background: #ffc233;
+}
+
+#drop-btn:active {
+    transform: scale(0.98);
+}
+
+#drop-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+.plinko-result {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    min-height: 2rem;
+}
+
+#result-message {
+    color: #ffb400;
+}
+
+.bet-history {
+    margin-top: 2rem;
+}
+
+#bet-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#bet-history-table th, #bet-history-table td {
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+#bet-history-table th {
+    background: #181c24;
+}
+
+/* Winning animation */
+@keyframes win-pulse {
+    0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 180, 0, 0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 180, 0, 0.6); }
+    100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 180, 0, 0.3); }
+}
+
+.bucket.win {
+    animation: win-pulse 0.5s ease-in-out 3;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 700px) {
+    .plinko-board {
+        width: 100%;
+        height: 400px;
+    }
+    
+    .plinko-controls {
+        flex-direction: column;
+    }
+}

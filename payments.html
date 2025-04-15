@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments - GambleX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <script defer src="assets/api.js"></script>
+    <script defer src="assets/payments.js"></script>
+    <script defer src="assets/script.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">GambleX</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="roulette.html">Roulette</a></li>
+                <li><a href="slot.html">Slot Machine</a></li>
+                <li><a href="sports.html">Sports Betting</a></li>
+                <li><a href="plinko.html">Plinko</a></li>
+                <li><a href="mines.html">Mines</a></li>
+                <li><a href="payments.html">Payments</a></li>
+                <li><a href="login.html" id="login-link">Login/Register</a></li>
+            </ul>
+            <div id="user-status"></div>
+        </nav>
+    </header>
+    <main>
+        <section class="payments-section">
+            <h2><i class="fas fa-wallet"></i> Wallet Management</h2>
+            <div class="payments-container">
+                <div class="deposit-box">
+                    <h3><i class="fas fa-arrow-down"></i> Deposit Funds</h3>
+                    <form id="deposit-form">
+                        <input type="number" min="1" id="deposit-amount" placeholder="Amount (INR)" required>
+                        <button type="submit"><i class="fas fa-plus-circle"></i> Deposit</button>
+                    </form>
+                    <div id="deposit-success" class="form-success"></div>
+                    <div class="payment-methods">
+                        <span><i class="fab fa-cc-visa"></i></span>
+                        <span><i class="fab fa-cc-mastercard"></i></span>
+                        <span><i class="fab fa-cc-amex"></i></span>
+                        <span><i class="fab fa-paypal"></i></span>
+                    </div>
+                </div>
+                <div class="withdraw-box">
+                    <h3><i class="fas fa-arrow-up"></i> Withdraw Funds</h3>
+                    <form id="withdraw-form">
+                        <input type="number" min="1" id="withdraw-amount" placeholder="Amount (INR)" required>
+                        <button type="submit"><i class="fas fa-minus-circle"></i> Withdraw</button>
+                    </form>
+                    <div id="withdraw-success" class="form-success"></div>
+                    <div class="payment-methods">
+                        <span><i class="fas fa-university"></i> Bank Transfer</span>
+                        <span><i class="fas fa-mobile-alt"></i> UPI</span>
+                    </div>
+                </div>
+            </div>
+            <div class="balance-display">
+                <h3><i class="fas fa-coins"></i> Your Balance: <span id="user-balance">0</span> INR</h3>
+            </div>
+            <div class="transaction-history">
+                <h3><i class="fas fa-history"></i> Transaction History</h3>
+                <table id="txn-table">
+                    <thead>
+                        <tr>
+                            <th><i class="far fa-calendar-alt"></i> Date</th>
+                            <th><i class="fas fa-exchange-alt"></i> Type</th>
+                            <th><i class="fas fa-rupee-sign"></i> Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 GambleX. All rights reserved.</p>
+    </footer>
+</body>
+</html>

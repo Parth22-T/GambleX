@@ -1,0 +1,710 @@
+/* Casino Website - Modern Dark Theme with Neon Accents */
+
+/* Base Styles & Variables */
+:root {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #121724;
+  --accent-neon: #00f2ff;
+  --accent-gold: #ffc107;
+  --accent-red: #ff3e5b;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b7c5;
+  --transition: all 0.3s ease-in-out;
+  --box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+  --card-bg: rgba(18, 23, 36, 0.8);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(to right, var(--text-primary), var(--accent-neon));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+/* Navbar */
+header {
+  background-color: rgba(10, 14, 23, 0.9);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+}
+
+.navbar {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.navbar-scrolled {
+  padding: 0.7rem 0;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo span {
+  color: var(--accent-neon);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links li a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: var(--transition);
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-neon);
+  transition: var(--transition);
+}
+
+.nav-links li a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+#user-status {
+  margin-left: 1rem;
+  font-size: 1rem;
+  color: var(--accent-neon);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+  overflow: hidden;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(10, 14, 23, 0.9) 0%, rgba(18, 23, 36, 0.85) 100%);
+}
+
+.hero h1 {
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease;
+}
+
+/* Game Cards & Promo Items */
+.promo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.promo-item {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 242, 255, 0.1);
+  position: relative;
+  cursor: pointer;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+}
+
+.promo-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
+  border-color: var(--accent-neon);
+}
+
+.promo-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.promo-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Sections */
+.why-us, .about-us, .promotions {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 3rem 2rem;
+  background-color: var(--bg-secondary);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 242, 255, 0.1);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-secondary);
+  padding: 3rem 0 1.5rem;
+  position: relative;
+  text-align: center;
+  color: var(--text-secondary);
+  margin-top: 3rem;
+  border-top: 1px solid rgba(0, 242, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Login & Register Styles */
+.login-section, .register-section {
+  max-width: 450px;
+  margin: 120px auto 50px;
+  padding: 2.5rem;
+  background: var(--bg-secondary);
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 242, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease;
+}
+
+.login-section::before, .register-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--accent-neon), var(--accent-gold));
+}
+
+.login-section h2, .register-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  background: linear-gradient(to right, var(--text-primary), var(--accent-neon));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-section form, .register-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.login-section input, .register-section input {
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.login-section input:focus, .register-section input:focus {
+  outline: none;
+  border-color: var(--accent-neon);
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
+
+.login-section button, .register-section button {
+  padding: 1rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent-neon), #0088ff);
+  color: var(--text-primary);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.login-section button:hover, .register-section button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 242, 255, 0.4);
+}
+
+.divider {
+  text-align: center;
+  margin: 1.5rem 0;
+  position: relative;
+  color: var(--text-secondary);
+}
+
+.divider::before, .divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.google-btn::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #4285f4, #34a853, #fbbc05, #ea4335);
+  border-radius: 50%;
+  opacity: 0.2;
+  transition: var(--transition);
+}
+
+.google-btn:hover::before {
+  transform: scale(5);
+  opacity: 0.1;
+}
+
+.form-error {
+  color: var(--accent-red);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+  min-height: 20px;
+}
+
+/* Payments Page Styles */
+.payments-section {
+  max-width: 900px;
+  margin: 120px auto 50px;
+  padding: 2.5rem;
+  background: var(--bg-secondary);
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 242, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease;
+}
+
+.payments-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--accent-neon), var(--accent-gold));
+}
+
+.payments-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  background: linear-gradient(to right, var(--text-primary), var(--accent-neon));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.payments-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.deposit-box, .withdraw-box {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.deposit-box:hover, .withdraw-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 242, 255, 0.2);
+}
+
+.deposit-box h3, .withdraw-box h3 {
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.deposit-box form, .withdraw-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.deposit-box input, .withdraw-box input {
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.deposit-box input:focus, .withdraw-box input:focus {
+  outline: none;
+  border-color: var(--accent-neon);
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
+
+.deposit-box button {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00c853, #00e676);
+  color: var(--text-primary);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.withdraw-box button {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff9100, #ffab40);
+  color: var(--text-primary);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.deposit-box button:hover, .withdraw-box button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-success {
+  color: #00e676;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+  min-height: 20px;
+}
+
+.balance-display {
+  background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), rgba(255, 193, 7, 0.1));
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.balance-display h3 {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+}
+
+#user-balance {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.transaction-history {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.transaction-history h3 {
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+#txn-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+#txn-table th {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--accent-neon);
+}
+
+#txn-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+}
+
+#txn-table tr:last-child td {
+  border-bottom: none;
+}
+
+#txn-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Game Balance Display */
+.game-balance {
+  background: linear-gradient(135deg, rgba(0, 242, 255, 0.15), rgba(255, 193, 7, 0.15));
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.game-balance::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 242, 255, 0.05), rgba(255, 193, 7, 0.05));
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.game-balance:hover::before {
+  transform: translateX(0);
+}
+
+.balance-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.balance-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.2rem;
+}
+
+.balance-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+}
+
+.balance-value i {
+  margin-right: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.balance-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.balance-action-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.balance-action-btn:hover {
+  background: rgba(0, 242, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.balance-action-btn.deposit {
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.3), rgba(0, 230, 118, 0.3));
+}
+
+.balance-action-btn.deposit:hover {
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.5), rgba(0, 230, 118, 0.5));
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .payments-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .promo-list {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .promo-list { 
+    grid-template-columns: 1fr; 
+  }
+  .promo-item { 
+    width: 100%; 
+  }
+  .navbar { 
+    flex-direction: column; 
+    gap: 1rem; 
+    padding: 1rem;
+  }
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
